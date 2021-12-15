@@ -1,0 +1,37 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+black = "*"
+ipython = "*"
+ipdb = "*"
+isort = "*"
+flake8 = "*"
+flake8-isort = "*"
+flake8-black = "*"
+
+[packages]
+alembic = "*"
+arq = "*"
+envparse = "*"
+pytest = "*"
+pytest-asyncio = "*"
+pytest-cov = "*"
+pytest-env = "*"
+pytest-freezegun = "*"
+pytest-mock = "*"
+redis = "*"
+requests = "*"
+requests-mock = "*"
+sentry-sdk = "*"
+sqlalchemy = "*"
+sqlalchemy-utils = "*"
+asyncpg = "*"
+
+[requires]
+python_version = "3.10"
+
+[pipenv]
+allow_prereleases = true
