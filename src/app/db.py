@@ -1,15 +1,16 @@
 from contextlib import asynccontextmanager
 
 from envparse import env
-from sqlalchemy.ext.asyncio import AsyncSession as _AsyncSession
-from sqlalchemy.ext.asyncio import create_async_engine
+from sqlalchemy.ext import asyncio as sa_asyncio
 from sqlalchemy.orm import sessionmaker
 
 env.read_envfile()
 
-engine = create_async_engine(env("SQLALCHEMY_DATABASE_URI"), pool_recycle=1800)
 
-AsyncSession = sessionmaker(bind=engine, class_=_AsyncSession)
+engine = sa_asyncio.create_async_engine(
+    env("SQLALCHEMY_DATABASE_URI"), pool_recycle=1800
+)
+AsyncSession = sessionmaker(bind=engine, class_=sa_asyncio.AsyncSession)
 
 
 @asynccontextmanager
