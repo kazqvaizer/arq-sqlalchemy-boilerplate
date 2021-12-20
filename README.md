@@ -1,5 +1,5 @@
 # arq-sqlalchemy-boilerplate
-[![build](https://github.com/kazqvaizer/arq-sqlalchemy-boilerplate/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/kazqvaizer/arq-sqlalchemy-boilerplate/actions/workflows/main.yml)
+[![build](https://github.com/kazqvaizer/arq-sqlalchemy-boilerplate/actions/workflows/main.yml/badge.svg)](https://github.com/kazqvaizer/arq-sqlalchemy-boilerplate/actions/workflows/main.yml)
 
 Boilerplate for services with Arq, SQLAlchemy, Docker, Alembic and Pytest.
 
