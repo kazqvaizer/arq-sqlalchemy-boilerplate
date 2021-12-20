@@ -8,9 +8,8 @@ Copy whole project and remove or rewrite all dummy code with `example` in it. Th
 
 To setup your environment locally for tests you need to define database and tasks broker urls. You can copy `.env.example` file to `.env` for this. It is ready to use with `docker-compose up` command.
 
-In production you need to define `SQLALCHEMY_DATABASE_URI` and `ARQ_BACKEND` enviroment variables for your service.
-
-
+In production you need to define `SQLALCHEMY_DATABASE_URI` and `ARQ_BACKEND` environment variables for your service.
+       
 ## Dependencies
 
 Install pipenv if you don`t have one:
@@ -26,32 +25,10 @@ pipenv install
 
 ## Code your project
 
-Create arq tasks inside `src/app/tasks.py` files as usual:
+Create arq tasks (they are just coroutins) in  `src/app/tasks.py` files.
+Register tasks in worker `src/app/arq.py`. 
 
-```
-from app.arq import arq
-from app.db import session_scope
-
-
-@arq.task
-def example_task():
-    with session_scope() as session:
-        my_arq_task_logic(session)
-```
-
-Extend `src/app/arq.py` with schedule for your tasks: 
-
-```
-from arq.schedules import crontab
-
-arq.conf.beat_schedule = {
-    "example_task": {
-        "task": "app.tasks.example_task", 
-        "schedule": crontab(minute="*")
-    }
-}
-
-```
+Arq docs: https://arq-docs.helpmanual.io/
 
 ## Tests
 

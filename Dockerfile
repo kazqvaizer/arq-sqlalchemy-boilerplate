@@ -5,7 +5,6 @@ ENV DOCKER_PIPENV_VERSION 2021.11.23
 
 WORKDIR /src
 
-
 RUN apt-get update \
     && apt-get install -y gcc python3-dev --no-install-recommends
 
