@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: password
+    networks:
+      - stack
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  redis:
+    image: redis:latest
+    networks:
+      - stack
+    volumes:
+      - redis:/data
+
+  arq:
+    image: arq-sqlalchemy-boilerplate
+    command: arq app.arq.ExampleWorkerSettings
+    environment: &environment
+      - ARQ_BACKEND=redis://redis:6379/0
+      - SQLALCHEMY_DATABASE_URI=postgresql+asyncpg://postgres:password@postgres:5432/postgres
+    networks:
+      - stack
+
+networks:
+  stack:
+    internal: true
+  ingress:
+
+volumes:
+  postgres:
+  redis:

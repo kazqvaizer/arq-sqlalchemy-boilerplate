@@ -8,7 +8,7 @@ Copy whole project and remove or rewrite all dummy code with `example` in it. Th
 
 To setup your environment locally for tests you need to define database and tasks broker urls. You can copy `.env.example` file to `.env` for this. It is ready to use with `docker-compose up` command.
 
-In production you need to define `SQLALCHEMY_DATABASE_URI` and `CELERY_BACKEND` enviroment variables for your service.
+In production you need to define `SQLALCHEMY_DATABASE_URI` and `ARQ_BACKEND` enviroment variables for your service.
 
 
 ## Dependencies
