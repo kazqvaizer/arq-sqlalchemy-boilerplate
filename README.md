@@ -2,22 +2,26 @@
 [![build](https://github.com/kazqvaizer/arq-sqlalchemy-boilerplate/actions/workflows/main.yml/badge.svg)](https://github.com/kazqvaizer/arq-sqlalchemy-boilerplate/actions/workflows/main.yml)
 
 Boilerplate for services with Arq, SQLAlchemy, Docker, Alembic and Pytest.
+                
+## Why 
+
+Here is modern and fully asynchronous way to run scheduled or triggered tasks in python. This boilerplate will fit any integration purpose when you need to synchronize resources or databases. 
+
+Current project is pytest friendly. It is very easy to start writing tests for your code here. 
 
 ## How to start
 Copy whole project and remove or rewrite all dummy code with `example` in it. There is an example migration file in `migrations/versions/` directory, so you may want to remove it also.
 
-To setup your environment locally for tests you need to define database and tasks broker urls. You can copy `.env.example` file to `.env` for this. It is ready to use with `docker-compose up` command.
+To set up your environment locally you need to define `SQLALCHEMY_DATABASE_URI` and `ARQ_BACKEND` parameters in `.env` file. Check `.env.example` as an example.
 
-In production you need to define `SQLALCHEMY_DATABASE_URI` and `ARQ_BACKEND` environment variables for your service.
-       
 ## Dependencies
 
-Install pipenv if you don`t have one:
+Install pipenv
 ```
 pip install pipenv
 ```
 
-Then simply run 
+Then run 
 
 ```
 pipenv install
@@ -25,8 +29,8 @@ pipenv install
 
 ## Code your project
 
-Create arq tasks (they are just coroutins) in  `src/app/tasks.py` files.
-Register tasks in worker `src/app/arq.py`. 
+Create arq tasks (they are just coroutines) in  `src/app/tasks.py` files.
+Register tasks in workers `src/app/arq.py`. 
 
 Arq docs: https://arq-docs.helpmanual.io/
 
